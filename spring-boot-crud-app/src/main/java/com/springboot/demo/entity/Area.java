@@ -7,13 +7,13 @@ public class Area {
 	private String areaName;
 	private int priority;
 	private Date createTime;
-	private Date editTime;
+	private Date lastEditTime;
 	
 	
 	@Override
 	public String toString() {
 		return "Area [areaId=" + areaId + ", areaName=" + areaName + ", priority=" + priority + ", createTime="
-				+ createTime + ", editTime=" + editTime + "]";
+				+ createTime + ", editTime=" + lastEditTime + "]";
 	}
 	public int getAreaId() {
 		return areaId;
@@ -40,10 +40,10 @@ public class Area {
 		this.createTime = createTime;
 	}
 	public Date getEditTime() {
-		return editTime;
+		return lastEditTime;
 	}
 	public void setEditTime(Date editTime) {
-		this.editTime = editTime;
+		this.lastEditTime = editTime;
 	}
 	
 	
