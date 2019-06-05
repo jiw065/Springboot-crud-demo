@@ -22,18 +22,21 @@ public class AreaDaoTest {
 	private AreaDao areaDao; 
 	
 	@Test
+	@Ignore
 	public void testGetAreas() {
 		List<Area> alist = areaDao.getAreas();
 		assertEquals("testing injection","North York", alist.get(1).getAreaName());
 	}
 
 	@Test
+	@Ignore
 	public void testGetAreaById() {
 		Area a = areaDao.getAreaById(1);
 		assertEquals("North York", a.getAreaName());
 	}
 
 	@Test
+	@Ignore
 	public void testAddArea() {
 		Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd HH:mm:ss");
@@ -47,6 +50,7 @@ public class AreaDaoTest {
 	}
 
 	@Test
+	@Ignore
 	public void testDeleteArea() {
 		int id = 4;
 		Area a = areaDao.getAreaById(id);
@@ -60,6 +64,7 @@ public class AreaDaoTest {
 	}
 
 	@Test
+	@Ignore
 	public void testUpdateArea() {
 		Area a = areaDao.getAreaById(3);
 		Calendar cal = Calendar.getInstance();
