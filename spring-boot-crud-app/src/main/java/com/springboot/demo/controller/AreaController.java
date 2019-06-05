@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,10 +29,33 @@ public class AreaController {
 		return areaMap;
 	}
 	
-	@RequestMapping(value="/getarea",method = RequestMethod.GET)
-	private Area getAreaById(int id) {
-		
+	@RequestMapping(value="/getareabyid",method = RequestMethod.GET)
+	private HashMap<String,Object> getAreaById(int id) {
+		HashMap<String,Object> areaMap = new HashMap<String, Object>();
+		Area a = as.getAreaById(id);
+		areaMap.put("area", a);
+		return areaMap;
 	}
 	
+	@RequestMapping(value="/addarea",method = RequestMethod.POST)
+	private HashMap<String,Object> addArea(@RequestBody Area a){
+		HashMap<String,Object> areaMap = new HashMap<String, Object>();
+		areaMap.put("success", as.addArea(a));
+		return areaMap;
+	}
+	
+	@RequestMapping(value="/updatearea",method = RequestMethod.POST)
+	private HashMap<String,Object> modifyArea(@RequestBody Area a){
+		HashMap<String,Object> areaMap = new HashMap<String, Object>();
+		areaMap.put("success", as.updateArea(a));
+		return areaMap;
+	}
+	
+	@RequestMapping(value="/deletearea",method = RequestMethod.GET)
+	private HashMap<String,Object> modifyArea(int id){
+		HashMap<String,Object> areaMap = new HashMap<String, Object>();
+		areaMap.put("success", as.deleteArea(id));
+		return areaMap;
+	}
 
 }
