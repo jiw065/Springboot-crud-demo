@@ -48,8 +48,15 @@ public class AreaDaoTest {
 
 	@Test
 	public void testDeleteArea() {
-		int effectedNum = areaDao.deleteArea(7);
-		assertEquals(1, effectedNum);
+		int id = 4;
+		Area a = areaDao.getAreaById(id);
+		if (a!=null) {
+			int effectedNum = areaDao.deleteArea(id);
+			assertEquals(1, effectedNum);
+		}else {
+			fail("The entity is not existing, please test again");
+		}
+		
 	}
 
 	@Test
