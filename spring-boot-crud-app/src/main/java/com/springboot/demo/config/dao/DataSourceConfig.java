@@ -1,13 +1,18 @@
 package com.springboot.demo.config.dao;
 
 import java.beans.PropertyVetoException;
-
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+/**
+ * Database connection configuration -- dataSource
+ * @author Amber
+ *
+ */
+
 @Configuration
 @MapperScan("com.springboot.demo.dao")
 public class DataSourceConfig {
