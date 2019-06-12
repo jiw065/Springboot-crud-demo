@@ -33,11 +33,22 @@ public class AreaController {
 //		return areaMap;
 //	}
 	
-	private ModelAndView listArea(HashMap<String,Object> areaMap){
+	private ModelAndView listArea(HashMap<String, Object> areaMap){
 		ModelAndView mv = new ModelAndView("list");
 		//HashMap<String,Object> areaMap = new HashMap<String, Object>();
 		List<Area> alist = as.getAreas();
 		areaMap.put("areaList", alist);
+		return mv;
+	}
+	@RequestMapping(value="/deletearea",method = RequestMethod.GET)
+	private ModelAndView deleteArea(int id){
+		//HashMap<String,Object> areaMap = new HashMap<String, Object>();
+		ModelAndView mv = new ModelAndView("error");
+		if(as.deleteArea(id)) {
+			mv = new ModelAndView("redirect:/admin/listarea");
+			return mv;
+		}
+	//	areaMap.put("success", as.deleteArea(id));
 		return mv;
 	}
 	
@@ -63,12 +74,12 @@ public class AreaController {
 		return areaMap;
 	}
 	
-	@RequestMapping(value="/deletearea",method = RequestMethod.GET)
-	private HashMap<String,Object> modifyArea(int id){
-		HashMap<String,Object> areaMap = new HashMap<String, Object>();
-		areaMap.put("success", as.deleteArea(id));
-		return areaMap;
-	}
+//	@RequestMapping(value="/deletearea",method = RequestMethod.GET)
+//	private HashMap<String,Object> modifyArea(int id){
+//		HashMap<String,Object> areaMap = new HashMap<String, Object>();
+//		areaMap.put("success", as.deleteArea(id));
+//		return areaMap;
+//	}
 	
 	/**
 	 * because used restcontroller, cannot directly return string of the page name

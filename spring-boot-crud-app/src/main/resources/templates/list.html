@@ -3,22 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Area list</title>
+	<style>
+		table.customTable {
+  		width: 50%;
+  		background-color: #FFFFFF;
+  		border-collapse: collapse;
+  		border-width: 2px;
+  		border-color: #7EA8F8;
+  		border-style: solid;
+  		color: #000000;
+		}
+
+		table.customTable td, table.customTable th {
+ 		border-width: 2px;
+  		border-color: #7EA8F8;
+  		border-style: solid;
+  		padding: 5px;
+		}
+
+		table.customTable thead {
+  		background-color: #7EA8F8;
+		}
+
+	
+	</style>
 </head>
 <body>
+	<div class="list">
     <h1>Area List</h1>   
-	<table class="table">
+	<table class="customTable">
 		<thead>
-			<th>Area ID</th>
 			<th>Area Name</th>
 			<th>Priority</th>
+			<th>Action</th>
 		</thead>
 		<tbody>
 			<tr th:each="area:${areaList}">
-				<td th:text="${area.areaId}">100</td>
       			<td th:text="${area.areaName}">test</td>
       			<td th:text="${area.priority}">1</td>
+      			<td><a th:href="@{/admin/deletearea(id=${area.areaId})}">Delete</a></td>
 			</tr>
 		</tbody>
 	</table>
+	</div>
 </body>
 </html>

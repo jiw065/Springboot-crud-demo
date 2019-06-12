@@ -36,15 +36,14 @@ public class AreaDaoTest {
 	}
 
 	@Test
-	@Ignore
 	public void testAddArea() {
 		Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd HH:mm:ss");
 		Area a = new Area();
-		a.setAreaName("Richmond Hill");
+		a.setAreaName("Markham");
 		a.setCreateTime(cal.getTime());
 		a.setEditTime(cal.getTime());
-		a.setPriority(4);
+		a.setPriority(3);
 		int effectedNum = areaDao.addArea(a);
 		assertEquals(1,effectedNum);
 	}
