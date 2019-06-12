@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>Area list</title>
 </head>
 <body>
-    <h1 th:text="${newWorld}">Hello World</h1>
+    <h1>Area List</h1>   
+	<table class="table">
+		<thead>
+			<th>Area ID</th>
+			<th>Area Name</th>
+			<th>Priority</th>
+		</thead>
+		<tbody>
+			<tr th:each="area:${areaList}">
+				<td th:text="${area.areaId}">100</td>
+      			<td th:text="${area.areaName}">test</td>
+      			<td th:text="${area.priority}">1</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>

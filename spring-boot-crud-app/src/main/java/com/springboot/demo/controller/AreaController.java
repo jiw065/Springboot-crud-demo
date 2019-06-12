@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,11 +25,20 @@ public class AreaController {
 	@Autowired
 	private AreaService as;
 	@RequestMapping(value="/listarea",method = RequestMethod.GET)
-	private HashMap<String,Object> listArea(){
-		HashMap<String,Object> areaMap = new HashMap<String, Object>();
+//	private HashMap<String,Object> listArea(){
+//		ModelAndView mv = new ModelAndView("list");
+//		HashMap<String,Object> areaMap = new HashMap<String, Object>();
+//		List<Area> alist = as.getAreas();
+//		areaMap.put("areaList", alist);
+//		return areaMap;
+//	}
+	
+	private ModelAndView listArea(HashMap<String,Object> areaMap){
+		ModelAndView mv = new ModelAndView("list");
+		//HashMap<String,Object> areaMap = new HashMap<String, Object>();
 		List<Area> alist = as.getAreas();
 		areaMap.put("areaList", alist);
-		return areaMap;
+		return mv;
 	}
 	
 	@RequestMapping(value="/getareabyid",method = RequestMethod.GET)
@@ -69,6 +79,7 @@ public class AreaController {
     public ModelAndView index(HashMap<String, Object> map){
 		ModelAndView mv = new ModelAndView("list");
         map.put("newWorld","WELCOME TO NEW WORLD!!!");
+       
         return mv;
     }
 
